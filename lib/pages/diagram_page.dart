@@ -21,7 +21,6 @@ class _DiagramDonutPieChartPageState extends State<DiagramDonutPieChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final TransactionController transactionController = Provider.of<TransactionController>(context);
     return Center(
       child: Container(
           child: charts.PieChart(list,

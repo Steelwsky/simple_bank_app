@@ -19,7 +19,7 @@ class TransactionsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 4.0),
+            padding: const EdgeInsets.only(top: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -27,9 +27,18 @@ class TransactionsPage extends StatelessWidget {
                 MaterialButton(
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
-                  child: Text(
-                    'Add transaction',
-                    style: TextStyle(color: Colors.pink),
+                  child: InkWell(
+                    child: Row(children: [
+                      Icon(
+                        Icons.add,
+                        size: 16,
+                        color: Colors.pink,
+                      ),
+                      Text(
+                        'Add transaction',
+                        style: TextStyle(color: Colors.pink, fontSize: 16),
+                      ),
+                    ]),
                   ),
                   onPressed: () {
                     transactionController.createTransaction();
@@ -55,12 +64,15 @@ class TransactionsPage extends StatelessWidget {
       builder: (_, snapshot, __) {
         if (snapshot.hasData && snapshot.data != null) {
           return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text('Overall: ${snapshot.data.length}'),
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Overall: ${snapshot.data.length}',
+              style: TextStyle(fontSize: 16),
+            ),
           );
         } else
           return Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
             child: Text('Overall: loading...'),
           );
       },
