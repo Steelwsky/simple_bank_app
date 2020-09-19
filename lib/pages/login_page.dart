@@ -51,9 +51,22 @@ class LoginPage extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Padding(
         padding: const EdgeInsets.all(0.0),
-        child: Text(
-          'User not found, please try again',
-          style: TextStyle(fontSize: 16, color: Colors.redAccent),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Icon(
+              Icons.info_outline,
+              size: 24,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'User not found, please try again',
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ],
         ),
       ),
     );
@@ -64,8 +77,7 @@ class LoginPage extends StatelessWidget {
       decoration: InputDecoration(labelText: "Login", hintText: 'admin'),
       keyboardType: TextInputType.text,
       controller: _loginTextController,
-
-      // onChanged: (login) {},
+      keyboardAppearance: Brightness.dark,
     );
   }
 
@@ -74,15 +86,19 @@ class LoginPage extends StatelessWidget {
       decoration: InputDecoration(labelText: "Password", hintText: '0000'),
       keyboardType: TextInputType.visiblePassword,
       controller: _passwordTextController,
-      // onChanged: (password) {},
+      keyboardAppearance: Brightness.dark,
     );
   }
 
   Widget _logInButton({@required UserController userController}) {
     return Material(
-      elevation: 4.0,
+      elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
+      color: Colors.pink,
       child: MaterialButton(
+        colorBrightness: Brightness.dark,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           userController.userCheck(

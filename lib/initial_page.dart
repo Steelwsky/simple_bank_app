@@ -8,8 +8,10 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LogInController logInController = Provider.of<LogInController>(context);
-    return Provider<UserController>(
-        create: (_) => UserController(logInController: logInController),
+    return MultiProvider(
+        providers: [
+          Provider<UserController>(create: (_) => UserController(logInController: logInController)),
+        ],
         child: ValueListenableBuilder(
             valueListenable: logInController.isLoggedIn,
             builder: (_, isLoggedIn, __) {

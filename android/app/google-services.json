@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "767007790532",
+    "firebase_url": "https://simple-bank-app.firebaseio.com",
+    "project_id": "simple-bank-app",
+    "storage_bucket": "simple-bank-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767007790532:android:59eb1895b60265a7668091",
+        "android_client_info": {
+          "package_name": "com.vadimzdrsky.simple_bank_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767007790532-2ecb18hhg4j7c092aajb0n2s273a8gd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGQucNgrQAwCxVuFYSHBp3bMNpCgAcf2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767007790532-2ecb18hhg4j7c092aajb0n2s273a8gd5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
