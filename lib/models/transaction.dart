@@ -7,26 +7,18 @@ enum Types {
   withdrawal,
 }
 
-// class TransactionType {
-//   TransactionType(this.type, this.typeName);
-//
-//   final Types type;
-//   final String typeName;
-//
-//   TransactionType.fromJson(Map<String, dynamic> json)
-//       : type = json['type'],
-//         typeName = json['typeName'];
-//
-//   Map<String, dynamic> toJson() {
-//     return {
-//       'type': type,
-//       'typeName': typeName,
-//     };
-//   }
-// }
-
 DateTime timestampHelper({@required Timestamp timestamp}) {
   return timestamp.toDate();
+}
+
+Types toType({String type}) {
+  if (type == 'Types.addition') {
+    return Types.addition;
+  } else if (type == 'Types.transition') {
+    return Types.transition;
+  } else {
+    return Types.withdrawal;
+  }
 }
 
 class BankTransaction {
@@ -45,7 +37,7 @@ class BankTransaction {
         sum = json['sum'] != null ? json['sum'] : '',
         fee = json['fee'],
         summary = json['summary'],
-        transactionType = json['transactionType'];
+        transactionType = toType(type: json['transactionType']);
 
   Map<String, dynamic> toJson() {
     return {

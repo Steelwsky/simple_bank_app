@@ -13,6 +13,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         valueListenable: myPageController.pageStateNotifier,
         builder: (_, pageState, __) {
           return BottomNavigationBar(
+              backgroundColor: Colors.black26,
               items: [
                 ...myBottomNavBarItems.tabs.map((tab) => BottomNavigationBarItem(
                       title: Text(tab.name),

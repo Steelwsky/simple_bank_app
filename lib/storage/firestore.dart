@@ -21,10 +21,15 @@ class FirestoreDatabase {
   }
 
   Future<List<BankTransaction>> retrieveBankTransactions() async {
-    final Iterable<BankTransaction> _list = await databaseFirestore
-        .collection('bankTransactions')
-        .get()
-        .then((value) => value.docs.map((e) => BankTransaction.fromJson(e.data())).toList());
-    return _list;
+    try {
+      final Iterable<BankTransaction> _list = await databaseFirestore
+          .collection('bankTransactions')
+          .get()
+          .then((value) => value.docs.map((e) => BankTransaction.fromJson(e.data())).toList());
+      return _list;
+    } catch (e) {
+      print(e);
+      return e;
+    }
   }
 }

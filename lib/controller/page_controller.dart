@@ -12,7 +12,7 @@ class MyPageController extends BottomNavBarItems {
 
   final List<Widget> pages = [
     TransactionsPage(),
-    DiagramPage(),
+    DiagramDonutPieChartPage(),
   ];
 
   void pageNavBarChange(int pageIndex) async {

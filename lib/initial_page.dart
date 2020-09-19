@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_bank_app/controller/login_controller.dart';
-import 'package:simple_bank_app/home_page.dart';
 import 'package:simple_bank_app/pages/login_page.dart';
+
+import 'file:///C:/Users/zadorskiy.vi/Desktop/Android/flutter/simple_bank_app/lib/pages/home_page.dart';
 
 class InitialPage extends StatelessWidget {
   @override
