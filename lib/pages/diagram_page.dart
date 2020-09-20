@@ -9,7 +9,7 @@ class DiagramDonutPieChartPage extends StatefulWidget {
 }
 
 class _DiagramDonutPieChartPageState extends State<DiagramDonutPieChartPage> {
-  List<charts.Series<TypeSummaryData, int>> list;
+  List<charts.Series<TypeSummaryData, int>> list = [];
 
   @override
   void didChangeDependencies() {
@@ -21,19 +21,32 @@ class _DiagramDonutPieChartPageState extends State<DiagramDonutPieChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          child: charts.PieChart(list,
-              animationDuration: Duration(milliseconds: 400),
-              animate: true,
-              defaultRenderer: charts.ArcRendererConfig(arcWidth: 120, arcRendererDecorators: [
-                new charts.ArcLabelDecorator(
-                    // insideLabelStyleSpec: charts.TextStyleSpec(
-                    //     color: charts.Color(r: 42, g: 42, b: 46, a: 1), fontSize: 14),
-                    // leaderLineStyleSpec: charts.ArcLabelLeaderLineStyleSpec(
-                    //     color: charts.Color(r: 42, g: 42, b: 46, a: 1)),
-                    ),
-              ]))),
-    );
+    print('LIST: $list');
+    if (list == null) {
+      return Center(
+          child: Text(
+        'No data for pie chart',
+      ));
+    } else
+      return Center(
+        child: Container(
+          child: charts.PieChart(
+            list,
+            animationDuration: Duration(milliseconds: 400),
+            animate: true,
+            defaultRenderer: charts.ArcRendererConfig(arcWidth: 120, arcRendererDecorators: [
+              new charts.ArcLabelDecorator(
+                insideLabelStyleSpec: charts.TextStyleSpec(
+                    fontSize: 16,
+                    color: charts.Color(
+                      r: 255,
+                      g: 255,
+                      b: 255,
+                    )),
+              ),
+            ]),
+          ),
+        ),
+      );
   }
 }

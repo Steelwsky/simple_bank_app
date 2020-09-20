@@ -73,6 +73,15 @@ class TransactionController {
     return Types.values[key].toString().substring(6);
   }
 
+  charts.Color _colorByKey(int key) {
+    if (key == 0) {
+      return charts.Color(r: 48, g: 63, b: 159); //0xFFEA80FC
+    } else if (key == 1) {
+      return charts.Color(r: 236, g: 64, b: 122); //0xFFEC407A
+    } else
+      return charts.Color(r: 142, g: 36, b: 170); //0xFF8E24AA
+  }
+
   List<charts.Series<TypeSummaryData, int>> createDonutWithData() {
     List<TypeSummaryData> countTypes = [];
     for (var element in transactionList.value.data) {
@@ -99,25 +108,30 @@ class TransactionController {
 
     countTypes = [];
     newTypeSummary.forEach((key, value) {
-      countTypes.add(TypeSummaryData(index: key, name: _nameByKey(key), summary: value));
+      countTypes.add(TypeSummaryData(
+          index: key, name: _nameByKey(key), summary: value, color: _colorByKey(key)));
     });
 
-    return [
-      new charts.Series<TypeSummaryData, int>(
-        id: 'Types',
-        data: countTypes,
-        domainFn: (TypeSummaryData bankTransaction, _) => bankTransaction.index,
-        measureFn: (TypeSummaryData bankTransaction, _) => bankTransaction.summary,
-        labelAccessorFn: (TypeSummaryData row, _) => '${row.name}\n\$${row.summary}',
-      )
-    ];
+    return countTypes.isEmpty
+        ? null
+        : [
+            new charts.Series<TypeSummaryData, int>(
+              id: 'Types',
+              data: countTypes,
+              domainFn: (TypeSummaryData bankTransaction, _) => bankTransaction.index,
+              measureFn: (TypeSummaryData bankTransaction, _) => bankTransaction.summary,
+              colorFn: (TypeSummaryData bankTransaction, _) => bankTransaction.color,
+              labelAccessorFn: (TypeSummaryData row, _) => '${row.name}\n\$${row.summary}',
+            )
+          ];
   }
 }
 
 class TypeSummaryData {
-  TypeSummaryData({this.index, this.name, this.summary});
+  TypeSummaryData({this.index, this.name, this.summary, this.color});
 
   final int index;
   final String name;
   final int summary;
+  final charts.Color color;
 }

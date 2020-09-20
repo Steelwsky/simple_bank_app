@@ -9,6 +9,9 @@ import 'package:simple_bank_app/storage/storage_concept.dart';
 
 import 'controller/login_controller.dart';
 
+/* todo redux?
+* */
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -48,6 +51,8 @@ class _MyAppState extends State<MyApp> {
           cursorColor: Colors.pink,
           accentColorBrightness: Brightness.dark,
           brightness: Brightness.dark,
+          focusColor: Colors.pink,
+          textSelectionHandleColor: Colors.pink,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: InitialPage(),

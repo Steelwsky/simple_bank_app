@@ -12,9 +12,9 @@ DateTime timestampHelper({@required Timestamp timestamp}) {
 }
 
 Types toType({String type}) {
-  if (type == 'Types.addition') {
+  if (type == 'addition') {
     return Types.addition;
-  } else if (type == 'Types.transition') {
+  } else if (type == 'transition') {
     return Types.transition;
   } else {
     return Types.withdrawal;
@@ -46,7 +46,7 @@ class BankTransaction {
       'sum': sum,
       'fee': fee,
       'summary': summary,
-      'transactionType': transactionType.toString(),
+      'transactionType': transactionType.toString().substring(6),
     };
   }
 }

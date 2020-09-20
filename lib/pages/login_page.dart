@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
     final UserController userController = Provider.of<UserController>(context);
     return ValueListenableBuilder(
         valueListenable: userController.userStatus,
-        builder: (_, user, __) {
+        builder: (_, userStatus, __) {
           return Scaffold(
             body: Center(
               child: SingleChildScrollView(
@@ -22,8 +22,8 @@ class LoginPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        user == UserStates.error
-                            ? _userNotFound(context: context)
+                        userStatus == UserStates.error || userStatus == UserStates.missing
+                            ? _errorCase(context: context, userStatus: userStatus)
                             : SizedBox(height: 20),
                         _loginField(),
                         SizedBox(height: 20.0),
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
         });
   }
 
-  Widget _userNotFound({BuildContext context}) {
+  Widget _errorCase({BuildContext context, UserStates userStatus}) {
     return Container(
       height: 20,
       alignment: Alignment.centerLeft,
@@ -63,7 +63,9 @@ class LoginPage extends StatelessWidget {
               width: 10,
             ),
             Text(
-              'User not found, please try again',
+              userStatus == UserStates.error
+                  ? 'User not found, please try again'
+                  : 'Login and password must be filled',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ],
