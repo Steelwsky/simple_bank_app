@@ -86,8 +86,9 @@ class TransactionDetailsPage extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: MaterialButton(
-                  splashColor: Colors.transparent,
+                  splashColor: Colors.white,
                   highlightColor: Colors.transparent,
+                  padding: EdgeInsets.fromLTRB(-5.0, -5.0, -5.0, -5.0),
                   color: Colors.red,
                   child: Text(
                     'Delete',

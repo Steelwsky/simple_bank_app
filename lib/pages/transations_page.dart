@@ -26,8 +26,9 @@ class TransactionsPage extends StatelessWidget {
               children: <Widget>[
                 _overallAmount(context: context),
                 MaterialButton(
-                  splashColor: Colors.transparent,
+                  splashColor: Colors.white,
                   highlightColor: Colors.transparent,
+                  padding: EdgeInsets.fromLTRB(-5.0, -5.0, -5.0, -5.0),
                   child: InkWell(
                     child: Row(children: [
                       Icon(

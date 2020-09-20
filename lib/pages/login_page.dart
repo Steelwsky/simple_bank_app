@@ -95,13 +95,13 @@ class LoginPage extends StatelessWidget {
   Widget _logInButton({@required UserController userController}) {
     return Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
+      // borderRadius: BorderRadius.circular(20.0),
       color: Colors.pink,
       child: MaterialButton(
         colorBrightness: Brightness.dark,
-        splashColor: Colors.transparent,
+        splashColor: Colors.white,
         highlightColor: Colors.transparent,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         onPressed: () {
           userController.userCheck(
             login: _loginTextController.value.text,
