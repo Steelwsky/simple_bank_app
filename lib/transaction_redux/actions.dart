@@ -1,0 +1,3 @@
+class AddTransaction {}
+
+class CancelTransaction {}
